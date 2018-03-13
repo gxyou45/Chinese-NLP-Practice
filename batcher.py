@@ -57,15 +57,11 @@ def preprocess_filter(inpath, outpath):
     mail_pattern = "^\\s*\\w+(?:\\.{0,1}[\\w-]+)*@[a-zA-Z0-9]+(?:[-.][a-zA-Z0-9]+)*\\.[a-zA-Z]+\\s*$"
     other_emoji = u"\[+[\u0020-\u007f\u4e00-\u9fa5\u3040-\u309f\u30a0-\u30ff]+?\]"
     pattern = tag_pattern+'|'+id_pattern+'|'+url_pattern+'|'+mail_pattern+'|'+other_emoji
-
-    all_in_one = 
-    for line in lines:
-        if len(line) > 1:
-            content = line[1]
-            content = content.decode('utf-8')
-
-            #TODO1: join multiple space
-            content = ' '.join(content.split())
+ 
+    content = content.decode('utf-8')
+    
+    #TODO1: join multiple space
+    content = ' '.join(content.split())
 
             #TODO2: escape emoji
             content = ''.join(c for c in content if c not in emoji.UNICODE_EMOJI)
